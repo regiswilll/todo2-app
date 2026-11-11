@@ -1,0 +1,274 @@
+:root {
+  color-scheme: light;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  color: #242923;
+  background: #f5f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 72px 24px 48px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(226, 232, 214, 0.6), transparent 55%),
+    #f5f4ef;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  width: min(100%, 600px);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 38px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #72786f;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 12vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+h1 span {
+  color: #78906c;
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid #e8e7df;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(44, 49, 39, 0.06);
+}
+
+.add-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px 14px;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.add-form input::placeholder {
+  color: #a0a49b;
+}
+
+.add-form:focus-within {
+  border-color: #9bab8e;
+  box-shadow: 0 0 0 3px rgba(120, 144, 108, 0.14);
+}
+
+.add-form button {
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: #657c59;
+  font-size: 0.91rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.add-form button:hover {
+  background: #536a48;
+}
+
+.add-form button:active {
+  transform: scale(0.98);
+}
+
+.add-form button span {
+  margin-left: 5px;
+  font-size: 1.15rem;
+  vertical-align: -1px;
+}
+
+.status {
+  min-height: 22px;
+  margin: 10px 4px 16px;
+  color: #9a493d;
+  font-size: 0.84rem;
+}
+
+.task-section {
+  overflow: hidden;
+  border: 1px solid #e8e7df;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.task-count {
+  min-width: 26px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  color: #657c59;
+  background: #edf1e8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.task-list {
+  margin: 0;
+  padding: 0 10px 10px;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 58px;
+  padding: 8px 12px;
+  border-top: 1px solid #f0efe9;
+}
+
+.task-item input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: #718967;
+  cursor: pointer;
+}
+
+.task-text {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.task-item.is-complete .task-text {
+  color: #9a9e95;
+  text-decoration: line-through;
+  text-decoration-color: #a4ad9c;
+}
+
+.delete-button {
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 8px;
+  color: #8c9088;
+  background: transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #a34336;
+  background: #fbefec;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 0 22px 24px;
+  color: #8b9086;
+  font-size: 0.9rem;
+}
+
+.task-list:not(:empty) + .empty-state {
+  display: none;
+}
+
+footer {
+  margin-top: 24px;
+  color: #9a9e95;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+:focus-visible {
+  outline: 3px solid #9bab8e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 48px 16px 32px;
+  }
+
+  .add-form {
+    gap: 4px;
+  }
+
+  .add-form button {
+    padding-inline: 12px;
+    font-size: 0.85rem;
+  }
+
+  .section-heading {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

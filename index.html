@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ef">
+    <title>todo2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <p class="eyebrow">A little clarity for your day</p>
+        <h1>todo<span>2</span></h1>
+      </header>
+
+      <form class="add-form" id="task-form">
+        <label class="visually-hidden" for="task-input">New task</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          placeholder="What needs doing?"
+          maxlength="200"
+          autocomplete="off"
+          required
+        >
+        <button type="submit">Add task <span aria-hidden="true">+</span></button>
+      </form>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+
+      <section class="task-section" aria-labelledby="tasks-heading">
+        <div class="section-heading">
+          <h2 id="tasks-heading">Your tasks</h2>
+          <span class="task-count" id="task-count">0</span>
+        </div>
+        <ul class="task-list" id="task-list"></ul>
+        <p class="empty-state" id="empty-state">Nothing on your list yet. Add a task to get started.</p>
+      </section>
+
+      <footer>Small steps count.</footer>
+    </main>
+  </body>
+</html>
