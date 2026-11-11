@@ -1,10 +1,13 @@
 const STORAGE_KEY = "todo2-tasks";
+const THEME_KEY = "todo2-theme";
 const taskForm = document.querySelector("#task-form");
 const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
 const taskCount = document.querySelector("#task-count");
 const emptyState = document.querySelector("#empty-state");
 const status = document.querySelector("#status");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
 let tasks = loadTasks();
 
@@ -97,4 +100,26 @@ taskForm.addEventListener("submit", (event) => {
   taskInput.focus();
 });
 
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  if (isDark) {
+    document.documentElement.dataset.theme = "dark";
+  } else {
+    delete document.documentElement.dataset.theme;
+  }
+  themeToggle.textContent = isDark ? "Light Mode" : "Dark Mode";
+  themeColorMeta.content = isDark ? "#171a16" : "#f5f4ef";
+}
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+  try {
+    localStorage.setItem(THEME_KEY, nextTheme);
+  } catch {
+    status.textContent = "Your theme choice could not be saved in this browser.";
+  }
+});
+
+applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
 renderTasks();
