@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f5f4ef">
     <title>todo2</title>
+    <script>
+      try {
+        if (localStorage.getItem("todo2-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
   </head>
@@ -39,6 +46,10 @@
         <ul class="task-list" id="task-list"></ul>
         <p class="empty-state" id="empty-state">Nothing on your list yet. Add a task to get started.</p>
       </section>
+
+      <div class="theme-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button">Dark Mode</button>
+      </div>
 
       <footer>Small steps count.</footer>
     </main>
